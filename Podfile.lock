@@ -1,0 +1,16 @@
+PODS:
+  - BTracker (0.1.0)
+
+DEPENDENCIES:
+  - BTracker (from `./`)
+
+EXTERNAL SOURCES:
+  BTracker:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  BTracker: d443715f048859ca642d1e47bfd7789bc9415410
+
+PODFILE CHECKSUM: 70eec8f07e98a3db28537d59fbc12fbf6f8470a7
+
+COCOAPODS: 1.2.1
