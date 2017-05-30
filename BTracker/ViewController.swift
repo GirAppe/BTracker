@@ -17,27 +17,45 @@ class ViewController: UIViewController {
 
         manager.start()
 
-        guard let beacon = Beacon(identifier: "ice", proximityUUID: "B9407F30-F5F8-466E-AFF9-25556B57FE6A", motionUUID: "39407F30-F5F8-466E-AFF9-25556B57FE6A") else {
-            assertionFailure("Invalid becaon Ids!!!")
-            return
-        }
-
+        let beacon = Beacon(identifier: "ice", proximityUUID: "B9407F30-F5F8-466E-AFF9-25556B57FE6A", major: 33, minor: 33, motionUUID: "39407F30-F5F8-466E-AFF9-25556B57FE6A")!
+        let beacon2 = Beacon(identifier: "blueberry", proximityUUID: "B9407F30-F5F8-466E-AFF9-25556B57FE6A", major: 1, minor: 1)!
         manager.track(beacon).onEvent { event in
             switch event {
                 case .regionDidEnter:
-                    print("Region did enter")
+                    print("ICE Region did enter")
                 case .regionDidExit:
-                    print("Region did exit")
+                    print("ICE Region did exit")
                 case .motionDidStart:
-                    print("Motion did start")
+                    print("ICE Motion did start")
                 case .motionDidEnd:
-                    print("Motion did end")
+                    print("ICE Motion did end")
                 case .proximityDidChange(let proximity):
                     if let proximity = proximity {
-                        print("Proximity changed: \(proximity)")
+                        print("ICE Proximity changed: \(proximity)")
                     } else {
-                        print("Proximity changed: unknown")
+                        print("ICE Proximity changed: unknown")
                     }
+//                default: break
+            }
+        }
+
+        manager.track(beacon2).onEvent { event in
+            switch event {
+                case .regionDidEnter:
+                    print("BLUEBERRY Region did enter")
+                case .regionDidExit:
+                    print("BLUEBERRY Region did exit")
+                case .motionDidStart:
+                    print("BLUEBERRY Motion did start")
+                case .motionDidEnd:
+                    print("BLUEBERRY Motion did end")
+                case .proximityDidChange(let proximity):
+                    if let proximity = proximity {
+                        print("BLUEBERRY Proximity changed: \(proximity)")
+                    } else {
+                        print("BLUEBERRY Proximity changed: unknown")
+                    }
+//                default: break
             }
         }
     }

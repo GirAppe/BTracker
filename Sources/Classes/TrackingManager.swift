@@ -26,9 +26,6 @@ extension TrackingManager: CLLocationManagerDelegate {
             return proxy.matches(any: region.identifier)
         }
 
-//        let motionDebug = region.identifier == "39407F30-F5F8-466E-AFF9-25556B57FE6A.ice" && beacons.count > 0
-//        print("ID \(region.identifier) -> \(beacons.count) -> \(motionDebug)")
-
         let rangeResult = try? tracked.split { proxy -> Bool in
             return beacons.contains { proxy.trackedBy.matches(beacon: $0) }
         }

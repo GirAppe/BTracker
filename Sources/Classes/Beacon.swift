@@ -53,7 +53,9 @@ extension Beacon: Equatable {
     public static func == (lhs: Beacon, rhs: CLBeacon) -> Bool {
         let proximity = lhs.proximityUUID == rhs.proximityUUID
         let motion = lhs.motionUUID == rhs.proximityUUID
-        return proximity || motion
+        let majorMatches = lhs.major == rhs.major.intValue
+        let minorMatches = lhs.minor == rhs.minor.intValue
+        return (proximity || motion) && majorMatches && minorMatches
     }
 
     public func matches(proximity identifier: Identifier) -> Bool {
