@@ -63,6 +63,14 @@ extension TrackableProxy {
     fileprivate func setMotionBeacon(state newState: TrackState) {
         guard case let .beacon(beacon) = trackedBy, beacon.isMotion else { return }
 
+//        if case let TrackState.ranged(with: _, for: someId) = newState {
+//            print("RANGE IDENTIFIER = \(someId)")
+//        }
+//
+//        if case let TrackState.none(for: someId) = newState {
+//            print("NONE IDENTIFIER = \(someId ?? "unknown")")
+//        }
+
         switch (state, newState) {
         // Ranging - makes sense only from none or unknown state
         case let (.none, .ranged(with: proximity, for: id)) where beacon.matches(proximity: id):
