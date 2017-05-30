@@ -30,7 +30,7 @@ BTracker is wrapping beacon and location based items tracking into convenient AP
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Sources/Classes/**/*'
+  s.source_files = 'BTracker/Sources/**/*'
 
   # s.resource_bundles = {
   #   'BTracker' => ['BTracker/Assets/*.png']

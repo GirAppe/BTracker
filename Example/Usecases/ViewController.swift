@@ -35,7 +35,6 @@ class ViewController: UIViewController {
                     } else {
                         print("ICE Proximity changed: unknown")
                     }
-//                default: break
             }
         }
 
@@ -55,7 +54,6 @@ class ViewController: UIViewController {
                     } else {
                         print("BLUEBERRY Proximity changed: unknown")
                     }
-//                default: break
             }
         }
     }
