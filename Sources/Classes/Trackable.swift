@@ -7,4 +7,6 @@ import CoreLocation
 
 public protocol Trackable {
     var trackedBy: TrackType { get }
+
+    func matches(any identifier: Identifier) -> Bool
 }

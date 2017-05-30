@@ -50,8 +50,18 @@ extension Beacon: Equatable {
         return lhs.identifier == rhs.identifier
     }
 
-    public func matches(identifier: Identifier) -> Bool {
-        return self.proximityIdentifier == identifier || self.motionIdentifier == identifier || self.identifier == identifier
+    public static func == (lhs: Beacon, rhs: CLBeacon) -> Bool {
+        let proximity = lhs.proximityUUID == rhs.proximityUUID
+        let motion = lhs.proximityUUID == rhs.proximityUUID
+        return proximity || motion
+    }
+
+    public func matches(proximity identifier: Identifier) -> Bool {
+        return self.proximityIdentifier == identifier
+    }
+
+    public func matches(motion identifier: Identifier) -> Bool {
+        return self.motionIdentifier == identifier
     }
 }
 

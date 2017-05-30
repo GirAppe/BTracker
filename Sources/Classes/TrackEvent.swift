@@ -5,20 +5,25 @@
 import Foundation
 import CoreLocation
 
-typealias TrackEventHandler = (_ event: TrackEvent) -> Void
+public typealias TrackEventHandler = (_ event: TrackEvent) -> Void
 
-enum TrackEvent {
+public enum TrackEvent {
     case motionDidStart
     case motionDidEnd
-    case proximityDidChange(proximity: Meters)
+    case proximityDidChange(Proximity?)
     case regionDidEnter
     case regionDidExit
 }
 
 extension TrackEvent: Equatable {
-    static func == (lhs: TrackEvent, rhs: TrackEvent) -> Bool {
+    public static func == (lhs: TrackEvent, rhs: TrackEvent) -> Bool {
         switch (lhs, rhs) {
-            default: return false
+            case let (.proximityDidChange(lhsProximity), .proximityDidChange(rhsProximity)): return lhsProximity == rhsProximity
+            case (.motionDidStart, .motionDidStart):    return true
+            case (.motionDidEnd, .motionDidEnd):        return true
+            case (.regionDidEnter, .regionDidEnter):    return true
+            case (.regionDidExit, .regionDidExit):      return true
+            default:                                    return false
         }
     }
 }
