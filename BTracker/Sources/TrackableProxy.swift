@@ -14,12 +14,13 @@ public class TrackableProxy {
     var state: TrackState = .none(for: nil)
     var handler: TrackEventHandler?
 
-    init(_ base: Trackable) {
+    public init(_ base: Trackable) {
         self.base = base
     }
 
-    func deliver(event: TrackEvent) {
+    public func deliver(event: TrackEvent) {
         handler?(event)
+        base.deliver(event: event)
     }
 
     func set(state: TrackState) {
@@ -105,7 +106,5 @@ extension TrackableProxy {
 extension TrackableProxy: Trackable {
     public var trackedBy: TrackType { return base.trackedBy }
 
-    public func matches(any identifier: Identifier) -> Bool {
-        return base.matches(any: identifier)
-    }
+    public func matches(any identifier: Identifier) -> Bool { return base.matches(any: identifier) }
 }

@@ -9,6 +9,10 @@ public class TrackingManager: NSObject {
     var manager: CLLocationManager
     var tracked: [TrackableProxy] = []
 
+    public var currentLocation: CLLocation? {
+        return manager.location
+    }
+
     public init(manager: CLLocationManager = CLLocationManager()) {
         self.manager = manager
         super.init()
@@ -35,8 +39,8 @@ extension TrackingManager: CLLocationManagerDelegate {
             .filter({
                 proxy.trackedBy.matches(beacon: $0)
             })
-            .sorted(by: {
-                $0.0.accuracy < $0.1.accuracy
+            .sorted(by: { (first, second) -> Bool in
+                first.proximityOrder < second.proximityOrder
             })
 
             proxy.set(state: .ranged(with: matching.first?.accuracy, for: region.identifier))
@@ -69,7 +73,7 @@ extension TrackingManager: CLLocationManagerDelegate {
 }
 
 extension TrackingManager {
-    public func track(_ item: Trackable) -> TrackableProxy {
+    @discardableResult public func track(_ item: Trackable) -> TrackableProxy {
         let proxy = TrackableProxy(item)
 
         tracked.append(proxy)
@@ -81,6 +85,15 @@ extension TrackingManager {
         }
 
         return proxy
+    }
+
+    @discardableResult public func track(_ item: MultiTrackable) -> [TrackableProxy] {
+        let proxies = item.trackedBy.map(self.track)
+
+        proxies.forEach { proxy in
+            proxy.onEvent { item.delivered(event: $0, by: proxy.base) }
+        }
+        return proxies
     }
 
     private func setupTracking(for beacon: Beacon) {
@@ -108,4 +121,9 @@ extension TrackingManager {
             manager.stopRangingBeacons(in: proximityRegion)
         }
     }
+}
+
+fileprivate extension CLBeacon {
+    var knownProximity: Proximity? { return accuracy >= 0 ? Proximity(accuracy) : nil }
+    var proximityOrder: Proximity { return accuracy >= 0 ? Proximity(accuracy) : Proximity.infinity }
 }
