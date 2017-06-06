@@ -87,6 +87,14 @@ extension TrackingManager {
         return proxy
     }
 
+    public func stop(tracking item: Trackable) {
+        switch item.trackedBy {
+        case let .beacon(beacon): stopTracking(for: beacon)
+        // TODO: Other cases setup
+        default: break
+        }
+    }
+
     @discardableResult public func track(_ item: MultiTrackable) -> [TrackableProxy] {
         let proxies = item.trackedBy.map(self.track)
 
@@ -94,6 +102,10 @@ extension TrackingManager {
             proxy.onEvent { item.delivered(event: $0, by: proxy.base) }
         }
         return proxies
+    }
+
+    public func stop(tracking item: MultiTrackable) {
+        item.trackedBy.forEach(self.stop)
     }
 
     private func setupTracking(for beacon: Beacon) {
@@ -113,10 +125,13 @@ extension TrackingManager {
         if beacon.isMotion {
             guard let proximityRegion = beacon.proximity else { return }
             manager.stopRangingBeacons(in: proximityRegion)
+            tracked.remove(where: { $0.matches(any: beacon.proximityIdentifier) })
             guard let motionRegion = beacon.motion else { return }
+            tracked.remove(where: { $0.matches(any: beacon.motionIdentifier) })
             manager.stopRangingBeacons(in: motionRegion)
         } else {
             guard let proximityRegion = beacon.proximity else { return }
+            tracked.remove(where: { $0.matches(any: beacon.proximityIdentifier) })
             manager.stopMonitoring(for: proximityRegion)
             manager.stopRangingBeacons(in: proximityRegion)
         }
@@ -126,4 +141,11 @@ extension TrackingManager {
 fileprivate extension CLBeacon {
     var knownProximity: Proximity? { return accuracy >= 0 ? Proximity(accuracy) : nil }
     var proximityOrder: Proximity { return accuracy >= 0 ? Proximity(accuracy) : Proximity.infinity }
+}
+
+fileprivate extension Array {
+    mutating func remove(`where` toRemove: (Element) -> Bool) {
+        guard let index = self.index(where: toRemove) else { return }
+        self.remove(at: index)
+    }
 }
