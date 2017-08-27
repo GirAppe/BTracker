@@ -5,6 +5,13 @@
 import Foundation
 
 extension Array {
+    mutating func remove(`where` toRemove: (Element) -> Bool) {
+        guard let index = self.index(where: toRemove) else { return }
+        self.remove(at: index)
+    }
+}
+
+extension Array {
     /// Splits array into two separate array, stored as tuple:
     ///
     ///  * __passing__: Contains array of elements passing test

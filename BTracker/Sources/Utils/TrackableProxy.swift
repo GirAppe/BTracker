@@ -4,45 +4,39 @@
 
 import Foundation
 
-enum TrackState {
-    case none(for: Identifier?)
-    case ranged(with: Proximity?, for: Identifier)
-}
-
-public class TrackableProxy {
+class TrackableProxy {
     let base: Trackable
-    var state: TrackState = .none(for: nil)
+    var state: BeaconTrackState = .none(for: nil)
     var handler: TrackEventHandler?
 
-    public init(_ base: Trackable) {
+    init(_ base: Trackable) {
         self.base = base
     }
 
-    public func deliver(event: TrackEvent) {
+    func deliver(event: TrackEvent) {
         handler?(event)
         base.deliver(event: event)
     }
 
-    func set(state: TrackState) {
-        // TODO: implement delivering events logic - for location and motion
-
-        switch trackedBy {
-            case let .beacon(beacon) where beacon.isMotion:
-                setMotionBeacon(state: state)
-            case .beacon:
-                setBeacon(state: state)
-            default:
-                self.state = state
-        }
-    }
-
-    public func onEvent(_ handler: @escaping TrackEventHandler) {
+    func onEvent(_ handler: @escaping TrackEventHandler) {
         self.handler = handler
     }
 }
 
+// MARK: - Beacon tracking state
 extension TrackableProxy {
-    fileprivate func setBeacon(state newState: TrackState) {
+    func set(state: BeaconTrackState) {
+        switch trackedBy {
+        case let .beacon(beacon) where beacon.isMotion:
+            setMotionBeacon(state: state)
+        case .beacon:
+            setBeacon(state: state)
+        default:
+            self.state = state
+        }
+    }
+
+    fileprivate func setBeacon(state newState: BeaconTrackState) {
         guard case let .beacon(beacon) = trackedBy, !beacon.isMotion else { return }
 
         switch (state, newState) {
@@ -61,7 +55,7 @@ extension TrackableProxy {
         }
     }
 
-    fileprivate func setMotionBeacon(state newState: TrackState) {
+    fileprivate func setMotionBeacon(state newState: BeaconTrackState) {
         guard case let .beacon(beacon) = trackedBy, beacon.isMotion else { return }
 
         switch (state, newState) {
@@ -103,8 +97,10 @@ extension TrackableProxy {
     }
 }
 
+// MARK: - Trackable
 extension TrackableProxy: Trackable {
-    public var trackedBy: TrackType { return base.trackedBy }
+    var identifier: Identifier { return base.identifier }
+    var trackedBy: TrackType { return base.trackedBy }
 
-    public func matches(any identifier: Identifier) -> Bool { return base.matches(any: identifier) }
+    func matches(any identifier: Identifier) -> Bool { return base.matches(any: identifier) }
 }

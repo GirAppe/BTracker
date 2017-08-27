@@ -13,20 +13,23 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		8CA6C1EFCF477556283B4CD7 /* BeaconTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6C91C7D39A0D7C6306C9D /* BeaconTrackingManager.swift */; };
+		8CA6C91C807F37B304734EE7 /* MotionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6C16E99E05DF6FA6B62F8 /* MotionObject.swift */; };
+		CC4006741F52C98400E3B5C9 /* Beacon+Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC40066A1F52C98400E3B5C9 /* Beacon+Trackable.swift */; };
+		CC4006751F52C98400E3B5C9 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC40066B1F52C98400E3B5C9 /* Beacon.swift */; };
+		CC4006761F52C98400E3B5C9 /* MotionTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC40066D1F52C98400E3B5C9 /* MotionTrackingManager.swift */; };
+		CC4006771F52C98400E3B5C9 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC40066F1F52C98400E3B5C9 /* Array+Utils.swift */; };
+		CC4006781F52C98400E3B5C9 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4006701F52C98400E3B5C9 /* Background.swift */; };
+		CC4006791F52C98400E3B5C9 /* DebugNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4006711F52C98400E3B5C9 /* DebugNotificator.swift */; };
+		CC40067A1F52C98400E3B5C9 /* TrackableProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4006721F52C98400E3B5C9 /* TrackableProxy.swift */; };
+		CC40067B1F52C98400E3B5C9 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4006731F52C98400E3B5C9 /* Value.swift */; };
+		CC838DAC1EFD39E900949A51 /* silence.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CC838DAB1EFD39E900949A51 /* silence.m4a */; };
 		CCC7384C1EDDADD600B9AD2C /* BTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC7382F1EDDAB0C00B9AD2C /* BTracker.framework */; };
 		CCC7384D1EDDADD600B9AD2C /* BTracker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCC7382F1EDDAB0C00B9AD2C /* BTracker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CCC7385D1EDDAE6D00B9AD2C /* Array+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC738521EDDAE6D00B9AD2C /* Array+Split.swift */; };
-		CCC7385E1EDDAE6D00B9AD2C /* Beacon+Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC738531EDDAE6D00B9AD2C /* Beacon+Trackable.swift */; };
-		CCC7385F1EDDAE6D00B9AD2C /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC738541EDDAE6D00B9AD2C /* Beacon.swift */; };
-		CCC738601EDDAE6D00B9AD2C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCC738551EDDAE6D00B9AD2C /* Info.plist */; };
-		CCC738611EDDAE6D00B9AD2C /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC738561EDDAE6D00B9AD2C /* Track.swift */; };
 		CCC738621EDDAE6D00B9AD2C /* Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC738571EDDAE6D00B9AD2C /* Trackable.swift */; };
-		CCC738631EDDAE6D00B9AD2C /* TrackableProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC738581EDDAE6D00B9AD2C /* TrackableProxy.swift */; };
 		CCC738641EDDAE6D00B9AD2C /* TrackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC738591EDDAE6D00B9AD2C /* TrackEvent.swift */; };
 		CCC738651EDDAE6D00B9AD2C /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC7385A1EDDAE6D00B9AD2C /* TrackingManager.swift */; };
 		CCC738661EDDAE6D00B9AD2C /* TrackType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC7385B1EDDAE6D00B9AD2C /* TrackType.swift */; };
-		CCC738671EDDAE6D00B9AD2C /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC7385C1EDDAE6D00B9AD2C /* Value.swift */; };
-		CCC738691EDDAE8A00B9AD2C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCC738681EDDAE8A00B9AD2C /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,18 +73,23 @@
 		607FACE51AFB9204008FA782 /* BTracker_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTracker_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		8CA6C16E99E05DF6FA6B62F8 /* MotionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionObject.swift; sourceTree = "<group>"; };
+		8CA6C91C7D39A0D7C6306C9D /* BeaconTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTrackingManager.swift; sourceTree = "<group>"; };
+		CC40066A1F52C98400E3B5C9 /* Beacon+Trackable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beacon+Trackable.swift"; sourceTree = "<group>"; };
+		CC40066B1F52C98400E3B5C9 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		CC40066D1F52C98400E3B5C9 /* MotionTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionTrackingManager.swift; sourceTree = "<group>"; };
+		CC40066F1F52C98400E3B5C9 /* Array+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		CC4006701F52C98400E3B5C9 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		CC4006711F52C98400E3B5C9 /* DebugNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugNotificator.swift; sourceTree = "<group>"; };
+		CC4006721F52C98400E3B5C9 /* TrackableProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableProxy.swift; sourceTree = "<group>"; };
+		CC4006731F52C98400E3B5C9 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		CC838DAB1EFD39E900949A51 /* silence.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.m4a; sourceTree = "<group>"; };
 		CCC7382F1EDDAB0C00B9AD2C /* BTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCC738521EDDAE6D00B9AD2C /* Array+Split.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Split.swift"; sourceTree = "<group>"; };
-		CCC738531EDDAE6D00B9AD2C /* Beacon+Trackable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beacon+Trackable.swift"; sourceTree = "<group>"; };
-		CCC738541EDDAE6D00B9AD2C /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		CCC738551EDDAE6D00B9AD2C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCC738561EDDAE6D00B9AD2C /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		CCC738571EDDAE6D00B9AD2C /* Trackable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
-		CCC738581EDDAE6D00B9AD2C /* TrackableProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableProxy.swift; sourceTree = "<group>"; };
 		CCC738591EDDAE6D00B9AD2C /* TrackEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackEvent.swift; sourceTree = "<group>"; };
 		CCC7385A1EDDAE6D00B9AD2C /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingManager.swift; sourceTree = "<group>"; };
 		CCC7385B1EDDAE6D00B9AD2C /* TrackType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackType.swift; sourceTree = "<group>"; };
-		CCC7385C1EDDAE6D00B9AD2C /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		CCC738681EDDAE8A00B9AD2C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,10 +166,50 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CC4006691F52C98400E3B5C9 /* BeaconTracking */ = {
+			isa = PBXGroup;
+			children = (
+				CC40066A1F52C98400E3B5C9 /* Beacon+Trackable.swift */,
+				CC40066B1F52C98400E3B5C9 /* Beacon.swift */,
+				8CA6C91C7D39A0D7C6306C9D /* BeaconTrackingManager.swift */,
+			);
+			path = BeaconTracking;
+			sourceTree = "<group>";
+		};
+		CC40066C1F52C98400E3B5C9 /* MotionTracking */ = {
+			isa = PBXGroup;
+			children = (
+				CC40066D1F52C98400E3B5C9 /* MotionTrackingManager.swift */,
+				8CA6C16E99E05DF6FA6B62F8 /* MotionObject.swift */,
+			);
+			path = MotionTracking;
+			sourceTree = "<group>";
+		};
+		CC40066E1F52C98400E3B5C9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CC40066F1F52C98400E3B5C9 /* Array+Utils.swift */,
+				CC4006701F52C98400E3B5C9 /* Background.swift */,
+				CC4006711F52C98400E3B5C9 /* DebugNotificator.swift */,
+				CC4006721F52C98400E3B5C9 /* TrackableProxy.swift */,
+				CC4006731F52C98400E3B5C9 /* Value.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CC838DAA1EFD39E900949A51 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CC838DAB1EFD39E900949A51 /* silence.m4a */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		CCC738301EDDAB0D00B9AD2C /* BTracker */ = {
 			isa = PBXGroup;
 			children = (
 				CCC738511EDDAE6D00B9AD2C /* Sources */,
+				CC838DAA1EFD39E900949A51 /* Assets */,
 			);
 			path = BTracker;
 			sourceTree = "<group>";
@@ -169,16 +217,13 @@
 		CCC738511EDDAE6D00B9AD2C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CCC738521EDDAE6D00B9AD2C /* Array+Split.swift */,
-				CCC738531EDDAE6D00B9AD2C /* Beacon+Trackable.swift */,
-				CCC738541EDDAE6D00B9AD2C /* Beacon.swift */,
-				CCC738561EDDAE6D00B9AD2C /* Track.swift */,
-				CCC738571EDDAE6D00B9AD2C /* Trackable.swift */,
-				CCC738581EDDAE6D00B9AD2C /* TrackableProxy.swift */,
-				CCC738591EDDAE6D00B9AD2C /* TrackEvent.swift */,
 				CCC7385A1EDDAE6D00B9AD2C /* TrackingManager.swift */,
+				CCC738571EDDAE6D00B9AD2C /* Trackable.swift */,
 				CCC7385B1EDDAE6D00B9AD2C /* TrackType.swift */,
-				CCC7385C1EDDAE6D00B9AD2C /* Value.swift */,
+				CCC738591EDDAE6D00B9AD2C /* TrackEvent.swift */,
+				CC4006691F52C98400E3B5C9 /* BeaconTracking */,
+				CC40066C1F52C98400E3B5C9 /* MotionTracking */,
+				CC40066E1F52C98400E3B5C9 /* Utils */,
 				CCC738551EDDAE6D00B9AD2C /* Info.plist */,
 			);
 			path = Sources;
@@ -286,13 +331,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = YYAKJ5SR76;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -332,7 +382,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC738691EDDAE8A00B9AD2C /* Info.plist in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -350,7 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC738601EDDAE6D00B9AD2C /* Info.plist in Resources */,
+				CC838DAC1EFD39E900949A51 /* silence.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,16 +427,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC7385D1EDDAE6D00B9AD2C /* Array+Split.swift in Sources */,
 				CCC738621EDDAE6D00B9AD2C /* Trackable.swift in Sources */,
-				CCC7385E1EDDAE6D00B9AD2C /* Beacon+Trackable.swift in Sources */,
-				CCC7385F1EDDAE6D00B9AD2C /* Beacon.swift in Sources */,
 				CCC738641EDDAE6D00B9AD2C /* TrackEvent.swift in Sources */,
+				CC4006791F52C98400E3B5C9 /* DebugNotificator.swift in Sources */,
+				CC4006771F52C98400E3B5C9 /* Array+Utils.swift in Sources */,
 				CCC738661EDDAE6D00B9AD2C /* TrackType.swift in Sources */,
-				CCC738631EDDAE6D00B9AD2C /* TrackableProxy.swift in Sources */,
-				CCC738671EDDAE6D00B9AD2C /* Value.swift in Sources */,
+				CC4006761F52C98400E3B5C9 /* MotionTrackingManager.swift in Sources */,
+				CC40067A1F52C98400E3B5C9 /* TrackableProxy.swift in Sources */,
+				CC4006741F52C98400E3B5C9 /* Beacon+Trackable.swift in Sources */,
 				CCC738651EDDAE6D00B9AD2C /* TrackingManager.swift in Sources */,
-				CCC738611EDDAE6D00B9AD2C /* Track.swift in Sources */,
+				CC4006751F52C98400E3B5C9 /* Beacon.swift in Sources */,
+				CC4006781F52C98400E3B5C9 /* Background.swift in Sources */,
+				CC40067B1F52C98400E3B5C9 /* Value.swift in Sources */,
+				8CA6C91C807F37B304734EE7 /* MotionObject.swift in Sources */,
+				8CA6C1EFCF477556283B4CD7 /* BeaconTrackingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -507,7 +560,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -599,7 +652,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BTracker/Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.BTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -627,7 +679,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BTracker/Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.BTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

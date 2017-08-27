@@ -5,14 +5,31 @@
 import Foundation
 import CoreLocation
 
-public typealias Identifier = String
-
-public struct Beacon {
+public class Beacon {
     public let identifier: Identifier
     public let proximityUUID: UUID
     public let motionUUID: UUID?
     public let major: Value<Int>
     public let minor: Value<Int>
+
+    var handler: TrackEventHandler?
+
+    init?(identifier: Identifier, proximityUUID: String, motionUUID: String? = nil, major: Value<Int> = .any, minor: Value<Int> = .any) {
+        guard let proximityUUID = UUID(uuidString: proximityUUID) else {
+            return nil
+        }
+
+        let motionUUID = UUID(uuidString: motionUUID)
+        self.identifier = identifier
+        self.proximityUUID = proximityUUID
+        self.motionUUID = motionUUID
+        self.major = major
+        self.minor = minor
+    }
+
+    public func onEvent(_ handler: @escaping TrackEventHandler) {
+        self.handler = handler
+    }
 }
 
 extension Beacon {
@@ -23,25 +40,16 @@ extension Beacon {
     internal var proximity: CLBeaconRegion? { return region(uuid: proximityUUID, identifier: proximityIdentifier) }
     internal var motion: CLBeaconRegion? { return region(uuid: motionUUID, identifier: motionIdentifier) }
 
-    public init?(identifier: Identifier, proximityUUID: String, motionUUID: String? = nil) {
-        guard let beacon = Beacon(identifier: identifier, proximityUUID: proximityUUID, motionUUID: motionUUID, major: .any, minor: .any) else {
-            return nil
-        }
-        self = beacon
+    public convenience init?(identifier: Identifier, proximityUUID: String, motionUUID: String? = nil) {
+        self.init(identifier: identifier, proximityUUID: proximityUUID, motionUUID: motionUUID, major: .any, minor: .any)
     }
 
-    public init?(identifier: Identifier, proximityUUID: String, major: Int, motionUUID: String? = nil) {
-        guard let beacon = Beacon(identifier: identifier, proximityUUID: proximityUUID, motionUUID: motionUUID, major: .some(major), minor: .any) else {
-            return nil
-        }
-        self = beacon
+    public convenience init?(identifier: Identifier, proximityUUID: String, major: Int, motionUUID: String? = nil) {
+        self.init(identifier: identifier, proximityUUID: proximityUUID, motionUUID: motionUUID, major: .some(major), minor: .any)
     }
 
-    public init?(identifier: Identifier, proximityUUID: String, major: Int, minor: Int, motionUUID: String? = nil) {
-        guard let beacon = Beacon(identifier: identifier, proximityUUID: proximityUUID, motionUUID: motionUUID, major: .some(major), minor: .some(minor)) else {
-            return nil
-        }
-        self = beacon
+    public convenience init?(identifier: Identifier, proximityUUID: String, major: Int, minor: Int, motionUUID: String? = nil) {
+        self.init(identifier: identifier, proximityUUID: proximityUUID, motionUUID: motionUUID, major: .some(major), minor: .some(minor))
     }
 }
 
@@ -68,15 +76,6 @@ extension Beacon: Equatable {
 }
 
 fileprivate extension Beacon {
-    init?(identifier: Identifier, proximityUUID: String, motionUUID: String? = nil, major: Value<Int> = .any, minor: Value<Int> = .any) {
-        guard let proximityUUID = UUID(uuidString: proximityUUID) else {
-            return nil
-        }
-        
-        let motionUUID = UUID(uuidString: motionUUID)
-        self = Beacon(identifier: identifier, proximityUUID: proximityUUID, motionUUID: motionUUID, major: major, minor: minor)
-    }
-
     func region(uuid: UUID?, identifier: Identifier) -> CLBeaconRegion? {
         guard let uuid = uuid else { return nil }
 
@@ -93,5 +92,14 @@ fileprivate extension UUID {
         guard let uuidString = uuidString else { return nil }
         guard let uuid = UUID(uuidString: uuidString) else { return nil }
         self = uuid
+    }
+}
+
+extension CLBeacon {
+    var knownProximity: Proximity? {
+        return accuracy >= 0 ? Proximity(accuracy) : nil
+    }
+    var proximityOrder: Proximity {
+        return accuracy >= 0 ? Proximity(accuracy) : Proximity.infinity
     }
 }

@@ -5,7 +5,10 @@
 import Foundation
 import CoreLocation
 
-public protocol Trackable {
+public typealias Identifier = String
+
+public protocol Trackable: class {
+    var identifier: Identifier { get }
     var trackedBy: TrackType { get }
 
     func matches(any identifier: Identifier) -> Bool
