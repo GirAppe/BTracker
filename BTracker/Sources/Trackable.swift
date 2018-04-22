@@ -17,6 +17,10 @@ public protocol Trackable: class {
 
 extension Trackable {
     public func deliver(event: TrackEvent) { }
+
+    public func matches(any identifier: Identifier) -> Bool {
+        return identifier == identifier
+    }
 }
 
 public protocol MultiTrackable {

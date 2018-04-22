@@ -49,5 +49,4 @@ extension Array {
 
         return dict
     }
-
 }

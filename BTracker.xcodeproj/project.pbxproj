@@ -23,6 +23,9 @@
 		CC4006791F52C98400E3B5C9 /* DebugNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4006711F52C98400E3B5C9 /* DebugNotificator.swift */; };
 		CC40067A1F52C98400E3B5C9 /* TrackableProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4006721F52C98400E3B5C9 /* TrackableProxy.swift */; };
 		CC40067B1F52C98400E3B5C9 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4006731F52C98400E3B5C9 /* Value.swift */; };
+		CC65581C208C7AE200858DC0 /* Voiceover.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65581B208C7AE200858DC0 /* Voiceover.swift */; };
+		CC65581F208C7BA400858DC0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC65581E208C7BA400858DC0 /* AVFoundation.framework */; };
+		CC655821208C7D0900858DC0 /* Speakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC655820208C7D0900858DC0 /* Speakable.swift */; };
 		CC838DAC1EFD39E900949A51 /* silence.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CC838DAB1EFD39E900949A51 /* silence.m4a */; };
 		CCC7384C1EDDADD600B9AD2C /* BTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC7382F1EDDAB0C00B9AD2C /* BTracker.framework */; };
 		CCC7384D1EDDADD600B9AD2C /* BTracker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCC7382F1EDDAB0C00B9AD2C /* BTracker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -83,6 +86,9 @@
 		CC4006711F52C98400E3B5C9 /* DebugNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugNotificator.swift; sourceTree = "<group>"; };
 		CC4006721F52C98400E3B5C9 /* TrackableProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableProxy.swift; sourceTree = "<group>"; };
 		CC4006731F52C98400E3B5C9 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		CC65581B208C7AE200858DC0 /* Voiceover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voiceover.swift; sourceTree = "<group>"; };
+		CC65581E208C7BA400858DC0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CC655820208C7D0900858DC0 /* Speakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speakable.swift; sourceTree = "<group>"; };
 		CC838DAB1EFD39E900949A51 /* silence.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.m4a; sourceTree = "<group>"; };
 		CCC7382F1EDDAB0C00B9AD2C /* BTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC738551EDDAE6D00B9AD2C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC65581F208C7BA400858DC0 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +133,7 @@
 				607FACD21AFB9204008FA782 /* Example */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
+				CC65581D208C7BA300858DC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,8 +177,8 @@
 		CC4006691F52C98400E3B5C9 /* BeaconTracking */ = {
 			isa = PBXGroup;
 			children = (
-				CC40066A1F52C98400E3B5C9 /* Beacon+Trackable.swift */,
 				CC40066B1F52C98400E3B5C9 /* Beacon.swift */,
+				CC40066A1F52C98400E3B5C9 /* Beacon+Trackable.swift */,
 				8CA6C91C7D39A0D7C6306C9D /* BeaconTrackingManager.swift */,
 			);
 			path = BeaconTracking;
@@ -189,12 +197,29 @@
 			isa = PBXGroup;
 			children = (
 				CC40066F1F52C98400E3B5C9 /* Array+Utils.swift */,
-				CC4006701F52C98400E3B5C9 /* Background.swift */,
 				CC4006711F52C98400E3B5C9 /* DebugNotificator.swift */,
 				CC4006721F52C98400E3B5C9 /* TrackableProxy.swift */,
 				CC4006731F52C98400E3B5C9 /* Value.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CC65581A208C793000858DC0 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				CC4006701F52C98400E3B5C9 /* Background.swift */,
+				CC655820208C7D0900858DC0 /* Speakable.swift */,
+				CC65581B208C7AE200858DC0 /* Voiceover.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+		CC65581D208C7BA300858DC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC65581E208C7BA400858DC0 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CC838DAA1EFD39E900949A51 /* Assets */ = {
@@ -221,6 +246,7 @@
 				CCC738571EDDAE6D00B9AD2C /* Trackable.swift */,
 				CCC7385B1EDDAE6D00B9AD2C /* TrackType.swift */,
 				CCC738591EDDAE6D00B9AD2C /* TrackEvent.swift */,
+				CC65581A208C793000858DC0 /* Background */,
 				CC4006691F52C98400E3B5C9 /* BeaconTracking */,
 				CC40066C1F52C98400E3B5C9 /* MotionTracking */,
 				CC40066E1F52C98400E3B5C9 /* Utils */,
@@ -353,6 +379,7 @@
 					CCC7382E1EDDAB0C00B9AD2C = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = YYAKJ5SR76;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -429,7 +456,9 @@
 			files = (
 				CCC738621EDDAE6D00B9AD2C /* Trackable.swift in Sources */,
 				CCC738641EDDAE6D00B9AD2C /* TrackEvent.swift in Sources */,
+				CC655821208C7D0900858DC0 /* Speakable.swift in Sources */,
 				CC4006791F52C98400E3B5C9 /* DebugNotificator.swift in Sources */,
+				CC65581C208C7AE200858DC0 /* Voiceover.swift in Sources */,
 				CC4006771F52C98400E3B5C9 /* Array+Utils.swift in Sources */,
 				CCC738661EDDAE6D00B9AD2C /* TrackType.swift in Sources */,
 				CC4006761F52C98400E3B5C9 /* MotionTrackingManager.swift in Sources */,
@@ -657,7 +686,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -683,7 +713,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.BTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
